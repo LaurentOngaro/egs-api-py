@@ -2,7 +2,20 @@ import setuptools
 from setuptools import setup
 import sys
 from pathlib import Path
-from egs_api import __name__, __version__, __codename__, __license__, __author__, __author_email__, __description__, __url__
+import datetime
+
+# Project metadata
+
+year = datetime.date.today().year
+__name__ = "egs-api-py"
+__version__ = "0.9.6"
+__author__ = "Laurent Ongaro"
+__codename__ = "v" + __version__
+__author_email__ = 'laurent@gameamea.com'
+__description__ = 'A minimal asynchronous interface to Epic Games Store in python new FAB marketplace API.'
+__copyright__ = f'{year} {__author__}'
+__license__ = 'MIT'
+__url__ = 'https://github.com/LaurentOngaro/egs-api-py'
 
 if sys.version_info < (3, 9):
     sys.exit('python 3.9 or higher is required for this project')

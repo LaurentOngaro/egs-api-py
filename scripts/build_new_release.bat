@@ -15,7 +15,7 @@ echo   - commit the changes
 echo   - push the changes
 echo   - create a [new release on GitHub](https://github.com/LaurentOngaro/egs-api-py/releases/new)
 echo     - create a new tag on GitHub using the new version number
-echo     - set the release title as the codename in `/egs-api-py/__init__.py`
+echo     - set the release title as the codename in `/setup.py`
 echo     - add a description (extract from commit messages)
 echo   - publish the release
 
