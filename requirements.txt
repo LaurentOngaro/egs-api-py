@@ -1,0 +1,35 @@
+# Python dependencies for the Epic Games API workflow
+
+# Async HTTP client (equivalent to reqwest in Rust)
+aiohttp>=3.8.0
+
+# HTTP requests library
+requests>=2.28.0
+
+# Async utilities
+asyncio-compat>=0.1.2
+
+# Logging (built-in but can be enhanced)
+colorlog>=6.7.0
+
+# JSON handling (built-in but pydantic for validation)
+pydantic>=1.10.0
+
+# Environment variable handling
+python-dotenv>=1.0.0
+
+# Type hints support for older Python versions
+typing-extensions>=4.4.0
+
+# Web browser automation (built-in webbrowser module is used)
+# But selenium can be added for more advanced browser control
+# selenium>=4.8.0
+
+# Cryptography for secure token storage (optional)
+cryptography>=39.0.0
+
+# Development dependencies
+pytest>=7.2.0
+pytest-asyncio>=0.21.0
+black>=23.1.0
+mypy>=1.0.0
