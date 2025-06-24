@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Build release distributions
         run: |
@@ -51,11 +51,11 @@ jobs:
     environment:
       name: pypi
       # OPTIONAL: uncomment and update to include your PyPI project URL in the deployment status:
-      # url: https://pypi.org/p/YOURPROJECT
+      url: https://pypi.org/p/egs-api-py
       #
       # ALTERNATIVE: if your GitHub Release name is the PyPI project version string
       # ALTERNATIVE: exactly, uncomment the following line instead:
-      url: https://pypi.org/project/egs-api-py/${{ github.event.release.name }}
+      #url: https://pypi.org/project/egs-api-py/${{ github.event.release.name }}
 
     steps:
       - name: Retrieve release distributions
