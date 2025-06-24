@@ -1,11 +1,9 @@
-# Welcome to egs-api
+# Welcome to egs-api-py
 
-[![License](https://img.shields.io/pypi/l/egs-api)](https://pypi.org/project/egs-api/LICENCE)
-[![Downloads](https://img.shields.io/pypi/dm/egs-api)](https://pypi.org/project/egs-api)
-[![Current PyPi Version](https://img.shields.io/pypi/v/egs-api)](https://pypi.python.org/pypi/egs-api)
-[![py_versions](https://img.shields.io/pypi/pyversions/egs-api)](https://pypi.python.org/pypi/uevaultmanager)
-[![github](https://img.shields.io/github/v/tag/LaurentOngaro/egs-api)](https://github.com/LaurentOngaro/egs-api)
-![Code Size](https://img.shields.io/github/languages/code-size/LaurentOngaro/egs-api)
+[![Current PyPi Version](https://img.shields.io/pypi/v/egs-api-py)](https://pypi.python.org/pypi/egs-api-py)
+[![py_versions](https://img.shields.io/pypi/pyversions/egs-api-py)](https://pypi.python.org/pypi/egs-api-py)
+[![github](https://img.shields.io/github/v/tag/LaurentOngaro/egs-api-py)](https://github.com/LaurentOngaro/egs-api-py)
+![Code Size](https://img.shields.io/github/languages/code-size/LaurentOngaro/egs-api-py)
 
 A minimal asynchronous interface to Epic Games Store in python.
 It can be used with the new FAB marketplace API.

@@ -26,8 +26,8 @@ __all__ = [
 import datetime
 
 year = datetime.date.today().year
-
-__version__ = "0.9.2"
+__name__ = "egs-api-py"
+__version__ = "0.9.4"
 __author__ = "Laurent Ongaro"
 __codename__ = "v" + __version__
 __author_email__ = 'laurent@gameamea.com'
