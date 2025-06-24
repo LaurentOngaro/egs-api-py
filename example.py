@@ -41,21 +41,37 @@ async def main():
     info = await egs.account_ids_details([account_id])
     print(f"\nAccount info: {info}\n")
 
-    manifest = await egs.fab_asset_manifest("KiteDemo473", "89efe5924d3d467c839449ab6ab52e7f", "28166226c38a4ff3aa28bbe87dcbbe5b", None)
-    print(f"\nKite Demo Manifest: {manifest}\n")
+    manifest = None
 
-    if manifest:
-        for man in manifest:
-            for url in man.distribution_point_base_urls:
-                print(f"\nTrying to get download manifest from {url}\n")
-                try:
-                    dm = await egs.fab_download_manifest(man, url)
-                    print(f"\nGot download manifest from {url}\n")
-                    print(f"\nExpected Hash: {man.manifest_hash}\n")
-                    download_hash = dm.custom_field("DownloadedManifestHash") or ""
-                    print(f"\nDownload Hash: {download_hash}\n")
-                except Exception as e:
-                    pass
+    try:
+        """
+        some data from the EGS catalog
+        Stylized Character Kit: Casual 01
+        app_id: Stylizedc5eba030d95dV1
+        id: c65f5de5e8234af6b3742fa40357ef14
+        CatalogAssetName	"Stylizedc5eba030d95dV1"
+        CatalogItemId	"c5eba030d95d4bc293e91818a87167e2"
+        """
+        manifest = await egs.asset_manifest(item_id="c5eba030d95d4bc293e91818a87167e2", namespace="ue", app="Stylizedc5eba030d95dV1")
+        print(f"\nStylized Character Manifest: {manifest}\n")
+    except Exception as e:
+        print(f"\nFailed to get EGS asset manifest: {e}\n")
+    """
+    // trying to get the manifest using FAB
+    // for "Stylized Character Kit: Casual 01"
+    //DO NOT USE THIS, IT IS NOT WORKING
+    try:
+        manifest = await egs.fab_asset_manifest("Stylizedc5eba030d95dV1", "ue", "c5eba030d95d4bc293e91818a87167e2", None)
+        print(f"\nStylized Character Manifest: {manifest}\n")
+    except Exception as e:
+        print(f"\nFailed to get FAB asset manifest: {e}\n")
+
+    try:
+        manifest = await egs.fab_asset_manifest("c5eba030d95d4bc293e91818a87167e2", "ue", "c5eba030d95d4bc293e91818a87167e2", None)
+        print(f"\nStylized Character Manifest: {manifest}\n")
+    except Exception as e:
+        print(f"\nFailed to get FAB asset manifest: {e}\n")
+    """
 
 
 if __name__ == "__main__":

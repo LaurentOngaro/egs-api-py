@@ -14,13 +14,13 @@ class QueryParam(BaseModel):
 
 class Manifest(BaseModel):
     uri: str
-    query_params: List[QueryParam]
+    queryParams: List[QueryParam]
 
 
 class Element(BaseModel):
-    app_name: str
-    label_name: str
-    build_version: str
+    appName: str
+    labelName: str
+    buildVersion: str
     hash: str
     manifests: List[Manifest]
 
