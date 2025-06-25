@@ -13,6 +13,76 @@ from .types.asset_manifest import AssetManifest
 from .types.asset_info import AssetInfo, GameToken, OwnershipToken
 from .types.download_manifest import DownloadManifest
 from .types.library import Library
+"""
+Other useful URLs
+
+- JSON detail of an asset with its id (not asset_id or catalog_id) NOT USED → result OK (2025-06-23)
+UE_ASSET/{el['id']}")
+https://www.unrealengine.com/marketplace/api/assets/asset/d27cf128fdc24e328cf950b019563bc5
+
+- Asset page with its urlSlug NOT USED → result HS (PROTECTED BY CAPTCHA) (2025-06-23)
+_url_marketplace/en-US/product/{'urlSlug}
+https://www.unrealengine.com/marketplace/en-US/product/volcrate → redirect to FAB url (2025-06-23)
+    → https://www.fab.com/listings/5416bfa0-0ec5-4a45-8b53-9b5832c6261d
+NOTE: the id appears in the asset data: {"FabListingId":{"type":"STRING","value":"5416bfa0-0ec5-4a45-8b53-9b5832c6261d"}}
+
+- JSON list of reviews for an asset with its id NOT USED
+https://www.unrealengine.com/marketplace/api/review/d27cf128fdc24e328cf950b019563bc5/reviews/list?start=0&count=10&sortBy=CREATEDAT&sortDir=DESC
+
+- JSON list of questions for an asset with its id NOT USED
+https://www.unrealengine.com/marketplace/api/review/d27cf128fdc24e328cf950b019563bc5/questions/list?start=0&count=10&sortBy=CREATEDAT&sortDir=DESC
+
+- JSON list of common tags NOT USED → incomplete result (2025-06-23)
+https://www.unrealengine.com/marketplace/api/tags
+
+The release_info field contains the manifest ID to download for each version
+(see app_id)
+
+URLs used in Epic Assets Manager
+- start_session USED in start_session() → result OK (2025-06-23)
+https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token
+
+- resume_session USED in resume_session() → result OK (2025-06-23)
+https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/verify
+
+- invalidate_session NOT USED
+https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/sessions/kill/{}", access_token);
+
+- account_details NOT USED
+https://account-public-service-prod03.ol.epicgames.com/account/api/public/account/{}
+
+- account_ids_details NOT USED
+https://account-public-service-prod03.ol.epicgames.com/account/api/public/account
+
+- account_friends NOT USED
+https://friends-public-service-prod06.ol.epicgames.com/friends/api/public/friends/{}?includePending={}", id, include_pending);
+
+# asset NOT USED
+https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/public/assets/{}?label={}", plat, lab);
+
+- asset_manifest USED in get_item_manifest() → result OK (2025-06-23)
+https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/public/assets/v2/platform/{}/namespace/{}/catalogItem/{}/app/{}/label/{}",
+
+- asset_info USED in get_item_info() → result OK (2025-06-23)
+https://catalog-public-service-prod06.ol.epicgames.com/catalog/api/shared/namespace/{}/bulk/items?id={}&includeDLCDetails=true&includeMainGameDetails=true&country=us&locale=lc",asset.namespace, asset.catalog_item_id);
+
+- game_token USED in get_item_token() → result OK (2025-06-23)
+https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/exchange"
+
+- ownership_token NOT USED
+https://ecommerceintegration-public-service-ecomprod02.ol.epicgames.com/ecommerceintegration/api/public/platforms/EPIC/identities/{}/ownershipToken",
+
+- user_entitlements NOT USED
+https://entitlement-public-service-prod08.ol.epicgames.com/entitlement/api/account/{}/entitlements?start=0&count=5000",
+
+- library_items USED in get_owned_library() → result OK (2025-06-23)
+https://library-service.live.use1a.on.epicgames.com/library/api/public/items?includeMetadata={}", include_metadata)
+https://library-service.live.use1a.on.epicgames.com/library/api/public/items?includeMetadata={}&cursor={}", include_metadata, c)
+
+- fab_library_items NOT USED → result HS (PROTECTED BY CAPTCHA) (2025-06-23)
+https://www.fab.com/e/accounts/{account_id}/ue/library?cursor={library.cursors.next}&count=100"
+https://www.fab.com/e/accounts/{account_id}/ue/library?count=100"
+"""
 
 logger = logging.getLogger(__name__)
 
