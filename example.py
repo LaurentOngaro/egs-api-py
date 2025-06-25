@@ -42,6 +42,13 @@ async def main():
     account_id = user_details.account_id if user_details.account_id else ""
     info = await egs.account_ids_details([account_id])
     print(f"\nAccount info: {info}\n")
+
+    print(f"\n*****All items of Fab library\n*****\n")
+    try:
+        items = await egs.fab_library_items(account_id=account_id)
+        print(f"\nFab library items: {items}\n")
+    except Exception as e:
+        print(f"\nFailed to get fab library items: {e}\n")
     """
     Exemple of a full data set from the EGS catalog API for "Unreal.js"
     fab url: https://www.fab.com/listings/9fa01ca3-2d5a-4bfa-a1c2-5a41e82eb196
@@ -124,7 +131,7 @@ async def main():
         print(f"\nFailed to get EGS asset manifest: {e}\n")
 
     # trying to get the manifest using FAB for "UnrealJS_5.1","
-    # DO NOT USE THIS, IT IS NOT WORKING, raise a 403 error
+    # !! DOES NOT WORK, raise a 403 error due to captcha !!
     # CHECK: what is the artifact_id? where to get it?
     artifact_id = "9fa01ca3-2d5a-4bfa-a1c2-5a41e82eb196"  # get from the url of the asset in FAB
     try:

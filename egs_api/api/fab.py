@@ -19,7 +19,11 @@ class FabMixin(EpicAPI):
     """FAB functionality for Epic API"""
 
     async def fab_asset_manifest(self, artifact_id: str, namespace: str, asset_id: str, platform: Optional[str] = None) -> List[DownloadInfo]:
-        """Get FAB asset manifest"""
+        """Get FAB asset manifest
+        # !!!!
+        # DOES NOT WORK using a session requests DUE TO CAPTCHA
+        # !!!!
+      """
         url = f"https://www.fab.com/e/artifacts/{artifact_id}/manifest"
         print(f"Fetching FAB asset manifest from {url}")  # debugging line
         json_data = {"item_id": asset_id, "namespace": namespace, "platform": platform or "Windows"}
@@ -36,7 +40,11 @@ class FabMixin(EpicAPI):
             raise UnknownError() from e
 
     async def fab_download_manifest(self, download_info: DownloadInfo, distribution_point_url: str) -> DownloadManifest:
-        """Get FAB download manifest"""
+        """Get FAB download manifest
+        # !!!!
+        # DOES NOT WORK using a session requests DUE TO CAPTCHA
+        # !!!!
+        """
         distribution_point = download_info.get_distribution_point_by_base_url(distribution_point_url)
 
         if not distribution_point:
@@ -68,7 +76,11 @@ class FabMixin(EpicAPI):
             raise UnknownError() from e
 
     async def fab_library_items(self, account_id: str) -> FabLibrary:
-        """Get FAB library items"""
+        """Get FAB library items
+        # !!!!
+        # DOES NOT WORK using a session requests DUE TO CAPTCHA
+        # !!!!
+        """
         library = FabLibrary()
 
         while True:
