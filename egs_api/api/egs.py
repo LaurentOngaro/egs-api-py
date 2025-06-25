@@ -24,7 +24,6 @@ class EGSMixin(EpicAPI):
         """Get list of assets"""
         platform = platform or "Windows"
         label = label or "Live"
-
         url = f"https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/public/assets/{platform}?label={label}"
 
         response_data = await self._make_request("GET", url)
@@ -123,7 +122,7 @@ class EGSMixin(EpicAPI):
 
         for element in asset_manifest.elements:
             for manifest in element.manifests:
-                query_params = "&".join(f"{param.name}={param.value}" for param in manifest.query_params)
+                query_params = "&".join(f"{param.name}={param.value}" for param in manifest.queryParams)
                 url = f"{manifest.uri}?{query_params}"
 
                 try:
@@ -160,3 +159,9 @@ class EGSMixin(EpicAPI):
                     logger.error(f"Error downloading manifest: {e}")
 
         return result
+
+    async def close(self):
+        """Close the aiohttp session if open"""
+        if hasattr(self, 'session') and self.session is not None:
+            await self.session.close()
+            self.session = None
