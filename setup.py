@@ -8,7 +8,7 @@ import datetime
 
 year = datetime.date.today().year
 __name__ = "egs-api-py"
-__version__ = "0.9.7"
+__version__ = "0.9.8"
 __author__ = "Laurent Ongaro"
 __codename__ = "v" + __version__
 __author_email__ = 'laurent@gameamea.com'
