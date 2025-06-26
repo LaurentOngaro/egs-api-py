@@ -4,11 +4,9 @@ import sys
 from pathlib import Path
 import datetime
 
-# Project metadata
-
 year = datetime.date.today().year
 __name__ = "egs-api-py"
-__version__ = "0.9.8"
+__version__ = "1.0.0"  # Update this version as needed
 __author__ = "Laurent Ongaro"
 __codename__ = "v" + __version__
 __author_email__ = 'laurent@gameamea.com'
@@ -53,8 +51,8 @@ setup(
         'Programming Language :: Python :: 3.11',  #
         'Programming Language :: Python :: 3.12',  #
         'Operating System :: OS Independent',  #
-        'Development Status :: 4 - Beta'
-        #'Development Status :: 5 - Production/Stable'
+        #'Development Status :: 4 - Beta'
+        'Development Status :: 5 - Production/Stable'
     ]
 )
 if __name__ == '__main__':
