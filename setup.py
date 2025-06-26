@@ -41,7 +41,6 @@ setup(
     long_description_content_type='text/markdown',
     url=__url__,
     packages=setuptools.find_packages(),
-    # data_files=[('', ['UEVaultManager/assets/UEVM_200x200.png','UEVaultManager/assets/main.ico'])],
     package_data={'': ['assets/*']},
     python_requires='>=3.9',
     classifiers=[
